@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.rodape {
+  background: #1d2440;
+  color: #fff;
+  text-align: center;
+  padding: 24px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rodape p {
+  margin: 0 0 8px;
+}
+
+.rodape small {
+  color: #c5cbe0;
+}

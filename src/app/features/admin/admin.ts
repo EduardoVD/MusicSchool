@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-
+import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 @Component({
-  imports: [],
-  selector: 'app-admin',
-  styleUrl: './admin.css',
-  templateUrl: './admin.html',
+  selector: "app-admin",
+  imports: [RouterLink],
+  templateUrl: "./admin.html",
+  styleUrl: "./admin.css",
 })
 export class Admin {}

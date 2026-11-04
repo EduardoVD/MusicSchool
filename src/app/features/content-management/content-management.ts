@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
-  imports: [],
-  selector: 'app-content-management',
-  styleUrl: './content-management.css',
-  templateUrl: './content-management.html',
+  selector: "app-content-management",
+  imports: [RouterLink],
+  templateUrl: "./content-management.html",
+  styleUrl: "./content-management.css",
 })
 export class ContentManagement {}
+
+export { ContentManagement as ManutencaoConteudo };

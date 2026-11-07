@@ -1,5 +1,44 @@
-<h1>Administração de conteúdos</h1>
-<p>Esta área será usada para realizar a manutenção dos itens cadastrados.</p>
-<a routerLink="/admin/novo">Novo conteúdo</a>
-<h2>Itens cadastrados</h2>
-<p>Na próxima etapa, esta seção terá a listagem, os botões de editar e excluir e as operações de CRUD.</p>
+<section class="list-box">
+    <div class="top-bar">
+        <h2>Itens Cadastrados</h2>
+    </div>
+    @if(sucessMessage) {
+        <div class="succes-message">
+            {{ sucessMessage }}
+        </div>
+        }
+    @if(errorMessage) {
+        <div class="error-message">
+            {{ errorMessage }}
+        </div>
+    }
+
+    @if (loading) {
+        <div class="loading">
+            <p>Carregando conteúdos...</p>
+        </div>
+    }
+
+    @if(!loading && contents.length === 0) {
+        <div class="empty-state">
+            <p>Nenhum conteúdo encontrado!</p>
+        </div>
+    }
+
+    <div class="content-grid">
+        @for(content of contents; track content.id) {
+            <div class="content-item">
+                <h3>{{ content.name }}</h3>
+                <p>{{ content.type }}</p>
+                <p>{{ content.mark }}</p>
+            </div>
+            <div class="actions">
+            <button type="button" class="btn-edit" (click)="edit(content.id)">
+                Editar
+            </button>
+            <button type="button" class="btn-delete" (click)="remove(content.id)">
+                Excluir
+            </button>
+        </div>
+        }
+</section>

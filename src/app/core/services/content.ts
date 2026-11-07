@@ -29,6 +29,7 @@ export class ContentService {
     }
 
     getById(id:string): Observable<Content> {
+        
         return this.http.get<FirebaseInstrument | null>(`${this.apiUrl}/${id}${this.sufix}`)
         .pipe(
             map((response) => {
@@ -39,6 +40,25 @@ export class ContentService {
                 return { id, ...contentData };
             })
         )
+    }
+
+    create(content: Omit<Content, "id">): Observable<Content> {
+        return this.http.post<{name: string}>(this.apiUrl + this.sufix, content).pipe(map((response => ({
+            id:response.name,
+            ...content,
+            })
+        )))
+    }
+
+    update(id: string, content: Omit<Content, "id">): Observable<Content> {
+        return this.http.put<Omit<Content, "id">>
+        (`${this.apiUrl}/${id}${this.sufix}`, content)
+        .pipe(
+            map((response) => ({
+                id,
+                ...content,
+            })),
+        );
     }
 
     delete(id:string): Observable<void> {

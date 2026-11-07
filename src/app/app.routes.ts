@@ -31,7 +31,7 @@ export const routes: Routes = [
     title: "Admin | Raxadinha",
   },
   {
-    path: "admin/novo",
+    path: "admin/form",
     loadComponent: () =>
       import("./features/content-management/content-management").then(
         (m) => m.ContentManagement,
@@ -39,7 +39,7 @@ export const routes: Routes = [
     title: "Novo conteúdo | Raxadinha",
   },
   {
-    path: "admin/editar/:id",
+    path: "admin/form/:id",
     loadComponent: () =>
       import("./features/content-management/content-management").then(
         (m) => m.ContentManagement,

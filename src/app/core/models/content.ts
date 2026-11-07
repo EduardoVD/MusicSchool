@@ -1,16 +1,12 @@
 export interface Content {
   id: string;
-  categoria: string;
-  titulo: string;
-  icone: string;
-  cor: "azul" | "dourado" | "verde" | "lilas" | "coral";
-  resumo: string;
-  descricao: string;
-  autor: string;
-  formato: string;
-  acesso: string;
-  preco: number;
-  beneficios: string[];
+  name: string;
+  type: string;
+  mark: string;
+  assetNumber: string;
+  stateConservation: string;
+  acquisitionDate: string;
+  loanAvailable: string;
 }
 
 export type Conteudo = Content;

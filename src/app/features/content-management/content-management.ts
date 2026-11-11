@@ -1,16 +1,16 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ContentService } from "../../core/services/content";
 
 @Component({
   selector: "app-content-management",
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: "./content-management.html",
   styleUrl: "./content-management.css",
 })
-export class ContentManagement {
-  private fb =inject(FormBuilder);
+export class ContentManagement implements OnInit {
+  private fb = inject(FormBuilder);
   private contentService = inject(ContentService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
@@ -18,7 +18,7 @@ export class ContentManagement {
   editingId: string | null = null;
   loading = false;
   loadingData = false;
-  succesMessage = "";
+  successMessage = "";
   errorMessage = ""; 
 
   form = this.fb.nonNullable.group({
@@ -28,10 +28,10 @@ export class ContentManagement {
     assetNumber: ['', [Validators.required]],
     stateConservation: ['', [Validators.required]],
     acquisitionDate: ['', [Validators.required]],
-    loanAvailable: ['', [Validators.required]],
+    loanAvailable: [true],
   });
 
-  ngOninit(): void {
+  ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get("id");
     if (id) {
       this.editingId = id;
@@ -50,7 +50,7 @@ export class ContentManagement {
           assetNumber: content.assetNumber,
           stateConservation: content.stateConservation,
           acquisitionDate: content.acquisitionDate,
-          loanAvailable: content.loanAvailable
+          loanAvailable: true
         })
         this.loadingData = false
       },
@@ -62,7 +62,7 @@ export class ContentManagement {
   }
 
   submit(): void {
-    this.succesMessage = "";
+    this.successMessage = "";
     this.errorMessage = "";
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -77,10 +77,37 @@ export class ContentManagement {
       assetNumber: formValue.assetNumber,
       stateConservation: formValue.stateConservation,
       acquisitionDate: formValue.acquisitionDate,
-      loanAvailable: formValue.loanAvailable
+      loanAvailable: true
     }
     if (this.editingId !== null) {
-      
+      this.contentService.update(this.editingId, contentData).subscribe({
+        next: () => {
+          this.loading = false;
+          this.successMessage = "Conteúdo atualizado com sucesso!";
+          setTimeout(() => {
+            this.router.navigate(["/admin"]);
+          }, 1000)
+        },
+        error: () => {
+          this.loading = false;
+          this.errorMessage = "Erro ao atualizar conteúdo."
+        },
+      });
+      return
     }
+    this.contentService.create(contentData).subscribe({
+        next: () => {
+          this.loading = false;
+          this.successMessage = "Conteúdo criado com sucesso!";
+          this.form.reset();
+          setTimeout(() => {
+            this.router.navigate(["/admin"]);
+          }, 1000)
+        },
+        error: () => {
+          this.loading = false;
+          this.errorMessage = "Erro ao criar conteúdo."
+        },
+      });
   }
 }

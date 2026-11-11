@@ -1,3 +1,120 @@
-<h1>Manutenção de conteúdo</h1>
-<p>O formulário de cadastro e edição será implementado nas próximas aulas.</p>
-<a routerLink="/admin">Voltar para administração</a>
+<div class="form-box">
+    <h2>
+        @if(editingId !== null) {
+            Editar Conteúdo
+        } @else {
+            Adicionar Conteúdo
+        }
+    </h2>
+
+    @if(loadingData) {
+        <div class="info-message">
+            Carregando dados do conteúdo...
+        </div>
+    }
+    @if(successMessage) {
+        <div class="success-message">
+            {{ successMessage }}
+        </div>
+    }
+    @if(errorMessage) {
+        <div class="error-message">
+            {{ errorMessage }}
+        </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="field">
+            <label for="name">Name:</label>
+            <input id="name" type="text" formControlName="name"/>
+            <span class="character-count">
+                {{ form.controls.name.value.length }} caracteres
+            </span>
+
+            @if (form.controls.name.touched &&
+            form.controls.name.invalid) {
+                <small>Informe um nome com no mínimo 3 caracteres</small>
+            }
+        </div>
+
+        <div class="field">
+            <label for="type">Tipo:</label>
+            <input id="type" type="text" formControlName="type"/>
+            <span class="character-count">
+                {{ form.controls.type.value.length }} caracteres
+            </span>
+
+            @if (form.controls.type.touched &&
+            form.controls.type.invalid) {
+                <small>Informe um tipo com no mínimo 15 caracteres</small>
+            }
+        </div>
+
+        <div class="field">
+            <label for="mark">Marca:</label>
+            <input id="mark" type="text" formControlName="mark"/>
+            <span class="character-count">
+                {{ form.controls.mark.value.length }} caracteres
+            </span>
+
+            @if (form.controls.mark.touched &&
+            form.controls.mark.invalid) {
+                <small>Informe a marca</small>
+            }
+        </div>
+
+        <div class="field">
+            <label for="assetNumber">Número de Patrimônio:</label>
+            <input id="assetNumber" type="text" formControlName="assetNumber"/>
+            <span class="character-count">
+                {{ form.controls.assetNumber.value.length }} caracteres
+            </span>
+
+            @if (form.controls.assetNumber.touched &&
+            form.controls.assetNumber.invalid) {
+                <small>Informe o número de patrimônio</small>
+            }
+        </div>
+
+        <div class="field">
+            <label for="stateConservation">Estado de Conservação:</label>
+            <input id="stateConservation" type="text" formControlName="stateConservation"/>
+            <span class="character-count">
+                {{ form.controls.stateConservation.value.length }} caracteres
+            </span>
+
+            @if (form.controls.stateConservation.touched &&
+            form.controls.stateConservation.invalid) {
+                <small>Informe o estado de conservação</small>
+            }
+        </div>
+
+        <div class="field">
+            <label for="acquisitionDate">Data de Aquisição:</label>
+            <input id="acquisitionDate" type="text" formControlName="acquisitionDate"/>
+            <span class="character-count">
+                {{ form.controls.acquisitionDate.value.length }} caracteres
+            </span>
+
+            @if (form.controls.acquisitionDate.touched &&
+            form.controls.acquisitionDate.invalid) {
+                <small>Informe a data de aquisição</small>
+            }
+        </div>
+
+        <div class="field">
+            <label for="loanAvailable">Empréstimo Liberado:</label>
+            <input id="loanAvailable" type="checkbox" formControlName="loanAvailable"/>
+        </div>
+
+        <button type="submit" [disabled]="loading || loadingData">
+            @if (loading) {
+                Salvando...
+            } @else if (editingId !== null) {
+                Atualizar
+            } @else {
+                Salvar
+            }
+        </button>
+    </form>   
+</div>

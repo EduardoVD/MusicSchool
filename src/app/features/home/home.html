@@ -50,14 +50,14 @@
     <div class="trilho" #trilho tabindex="0" aria-label="Carrossel de conteúdos em destaque">
       @for (conteudo of conteudosDestaque$ | async; track conteudo.id) {
       <article class="card-conteudo">
-        <div class="capa" [class]="'capa ' + conteudo.cor">
-          <span>{{ conteudo.icone }}</span>
-          <small>Raxadinha</small>
+        <div class="capa" [class]="'capa ' + (conteudo.cor || 'azul')">
+          <span>{{ conteudo.icone || '🎵' }}</span>
+          <small>MusicSchool</small>
         </div>
         <div class="card-corpo">
-          <span class="categoria">{{ conteudo.categoria }}</span>
-          <h3>{{ conteudo.titulo }}</h3>
-          <a [routerLink]="['/conteudos', conteudo.id]" [attr.aria-label]="'Conhecer ' + conteudo.titulo">Conhecer
+          <span class="categoria">{{ conteudo.type || conteudo.categoria }}</span>
+          <h3>{{ conteudo.name || conteudo.titulo }}</h3>
+          <a [routerLink]="['/conteudos', conteudo.id]" [attr.aria-label]="'Conhecer ' + (conteudo.name || conteudo.titulo)">Conhecer
             <span>→</span></a>
         </div>
       </article>

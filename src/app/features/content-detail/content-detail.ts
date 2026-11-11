@@ -15,8 +15,8 @@ export class ContentDetail {
 
   constructor(route: ActivatedRoute, conteudosService: ContentService) {
     this.conteudo$ = route.paramMap.pipe(
-      map((parametros) => Number(parametros.get("id"))),
-      switchMap((id) => conteudosService.buscarPorId(id)),
+      map((parametros) => parametros.get("id") ?? ""),
+      switchMap((id) => conteudosService.getById(id)),
     );
   }
 }

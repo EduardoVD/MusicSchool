@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, signal } from "@angular/core";
 import { Router, RouterLink } from "@angular/router";
 import { ContentService } from "../../core/services/content";
 import { Content } from "../../core/models/content";
@@ -13,28 +13,28 @@ export class Admin {
   private ContentService = inject(ContentService);
   private router = inject(Router);
 
-  contents: Content[] = [];
-  loading = false;
+  contents = signal<Content[]>([]);
+  loading = signal(true);
   errorMessage = "";
   sucessMessage = "";
 
+    ngOnInit(): void {
+    this.loadContents();
+  }
+
   loadContents(): void {
-    this.loading = true;
+    this.loading.set(true);
     this.errorMessage = "";
     this.ContentService.getAll().subscribe({
       next: (response) => {
-        this.contents = response;
-        this.loading = false;
+        this.contents.set(response);
+        this.loading.set(false);
       },
       error: (error) => {
       this.errorMessage = "Erro ao carregar conteúdos: " + error.message;
-      this.loading = false;
+      this.loading.set(false);
       }
     })
-  }
-
-  ngOnInit(): void {
-    this,this.loadContents();
   }
 
   edit(id: string): void {

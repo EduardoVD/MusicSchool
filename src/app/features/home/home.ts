@@ -11,14 +11,13 @@ import { ContentService } from "../../core/services/content";
   styleUrl: "./home.css",
 })
 export class Home {
+  // Ajustando o nome do parâmetro para 'contents':
   readonly conteudosDestaque$;
-
-  constructor(conteudosService: ContentService) {
-    this.conteudosDestaque$ = conteudosService
-      .listar()
-      .pipe(map((conteudos) => conteudos.slice(0, 10)));
+  constructor(contentsService: ContentService) {
+    this.conteudosDestaque$ = contentsService
+      .getAll()
+      .pipe(map((contents) => contents.slice(0, 10)));
   }
-
   moverCarrossel(trilho: HTMLElement, direcao: number): void {
     trilho.scrollBy({ left: direcao * 340, behavior: "smooth" });
   }

@@ -5,7 +5,7 @@
 }
 
 .cabecalho {
-  background: #1d2440;
+  background: #133827;
   color: #fff;
   width: 100%;
 }
@@ -36,7 +36,7 @@ nav {
 }
 
 nav a {
-  color: #e7eaf5;
+  color: #e7f2eb;
   text-decoration: none;
   padding: 9px 12px;
   border-radius: 6px;
@@ -44,20 +44,20 @@ nav a {
 
 nav a:hover,
 nav a.ativo {
-  background: #35416b;
+  background: #21573d;
   color: #fff;
 }
 
 nav .botao-admin {
-  background: #e5b85b;
-  color: #172039;
+  background: #5fd18d;
+  color: #0d291c;
   font-weight: 700;
 }
 
 nav .botao-admin:hover,
 nav .botao-admin.ativo {
-  background: #f3cf83;
-  color: #172039;
+  background: #88ebb0;
+  color: #0d291c;
 }
 
 @media (max-width: 600px) {

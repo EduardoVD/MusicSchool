@@ -20,13 +20,14 @@
     padding: 10px 14px;
     border-radius: 6px;
     text-decoration: none;
-    background-color: #3dff94;
-    color: #000;
+    background-color: #5fd18d;
+    color: #0d291c;
+    font-weight: 700;
 }
 
 .loading,
 .empty-state {
-    background-color: #1f1f1f;
+    background-color: #133827;
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -40,7 +41,7 @@
 }
 
 .conteudo-item {
-    background-color: #1f1f1f;
+    background-color: #133827;
     padding: 14px;
     border-radius: 8px;
     color: #fff;
@@ -57,7 +58,7 @@
 
 .conteudo-item p {
     margin-bottom: 6px;
-    color: #ddd;
+    color: #d6ebe0;
     font-size: 14px;
     line-height: 1.35;
 }
@@ -94,11 +95,11 @@
 }
 
 .btn-detail {
-    background-color: #0400ff;
+    background-color: #1e7e48;
 }
 
 .btn-edit {
-    background-color: #2d7ef7;
+    background-color: #2e9e62;
 }
 
 .btn-delete {

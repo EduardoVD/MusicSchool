@@ -1,0 +1,145 @@
+.vitrine {
+    padding: clamp(72px, 8vw, 112px) 0 20px;
+}
+
+.vitrine-cabecalho {
+    display: flex;
+    padding: 0 clamp(0px, 4vw, 56px);
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.vitrine-cabecalho h2 {
+    margin: 12px 0 10px;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -.035em;
+}
+
+.trilho {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 42px clamp(0px, 4vw, 56px) 28px;
+    gap: 18px;
+}
+
+.card-conteudo {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #cfe0d5;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgb(19 56 39 / 8%);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.card-conteudo:hover {
+    box-shadow: 0 18px 40px rgb(19 56 39 / 14%);
+    transform: translateY(-6px);
+}
+
+.capa {
+    position: relative;
+    display: grid;
+    min-height: 210px;
+    padding: 24px;
+    overflow: hidden;
+    place-items: center;
+}
+
+.capa::before,
+.capa::after {
+    position: absolute;
+    border: 1px solid rgb(255 255 255 / 28%);
+    border-radius: 50%;
+    content: '';
+}
+
+.capa::before {
+    width: 180px;
+    height: 180px;
+}
+
+.capa::after {
+    width: 110px;
+    height: 110px;
+}
+
+.capa > span {
+    z-index: 1;
+    color: #fff;
+    font-size: 3.4rem;
+}
+
+.capa small {
+    position: absolute;
+    right: 18px;
+    bottom: 15px;
+    color: rgb(255 255 255 / 78%);
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.capa.azul {
+    background: linear-gradient(135deg, #164430, #2e7d5b);
+}
+
+.capa.dourado {
+    background: linear-gradient(135deg, #2d6a3e, #6ec47a);
+}
+
+.capa.verde {
+    background: linear-gradient(135deg, #1b5e4a, #4ca88a);
+}
+
+.capa.lilas {
+    background: linear-gradient(135deg, #355e3b, #74a87b);
+}
+
+.capa.coral {
+    background: linear-gradient(135deg, #1f5c4e, #5ec2a6);
+}
+
+.card-corpo {
+    padding: 24px;
+}
+
+.categoria {
+    color: #1e7e48;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.card-corpo h3 {
+    min-height: 58px;
+    margin: 10px 0 24px;
+    font-size: 1.3rem;
+    line-height: 1.35;
+}
+
+.card-corpo a {
+    display: flex;
+    color: #133827;
+    font-weight: 800;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.card-corpo a:hover {
+    color: #1e7e48;
+}
+
+@media (max-width: 560px) {
+    .trilho {
+        grid-template-columns: 1fr;
+    }
+
+    .vitrine-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

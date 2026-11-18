@@ -5,13 +5,13 @@
 .detalhe {
     width: min(100%, 1240px);
     margin: 0 auto;
-    color: #1d2440;
+    color: #133827;
 }
 
 .voltar {
     display: inline-flex;
     margin: 4px 0 28px;
-    color: #626a81;
+    color: #577364;
     align-items: center;
     gap: 9px;
     font-weight: 700;
@@ -19,16 +19,16 @@
 }
 
 .voltar:hover {
-    color: #b17c18;
+    color: #1e7e48;
 }
 
 .apresentacao {
     display: grid;
     grid-template-columns: minmax(330px, .8fr) minmax(0, 1.2fr);
     overflow: hidden;
-    border: 1px solid #e0e3ec;
+    border: 1px solid #cfe0d5;
     border-radius: 28px;
-    background: #f8f8fb;
+    background: #f3f8f5;
 }
 
 .capa {
@@ -74,23 +74,23 @@
 }
 
 .capa.azul {
-    background: linear-gradient(135deg, #253058, #6676b3);
+    background: linear-gradient(135deg, #164430, #2e7d5b);
 }
 
 .capa.dourado {
-    background: linear-gradient(135deg, #9b6814, #e5b85b);
+    background: linear-gradient(135deg, #2d6a3e, #6ec47a);
 }
 
 .capa.verde {
-    background: linear-gradient(135deg, #27624f, #6eaf8d);
+    background: linear-gradient(135deg, #1b5e4a, #4ca88a);
 }
 
 .capa.lilas {
-    background: linear-gradient(135deg, #583f75, #a781c5);
+    background: linear-gradient(135deg, #355e3b, #74a87b);
 }
 
 .capa.coral {
-    background: linear-gradient(135deg, #91483e, #df8b78);
+    background: linear-gradient(135deg, #1f5c4e, #5ec2a6);
 }
 
 .informacoes {
@@ -102,7 +102,7 @@
 
 .categoria,
 .rotulo {
-    color: #b17c18;
+    color: #1e7e48;
     font-size: .78rem;
     font-weight: 800;
     letter-spacing: .12em;
@@ -118,7 +118,7 @@
 
 .introducao {
     margin: 0;
-    color: #626a81;
+    color: #577364;
     font-size: 1.12rem;
     line-height: 1.75;
 }
@@ -127,7 +127,7 @@
     display: grid;
     margin: 36px 0;
     padding: 24px 0;
-    border-block: 1px solid #dfe2eb;
+    border-block: 1px solid #cfe0d5;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
@@ -139,7 +139,7 @@
 }
 
 .metadados span {
-    color: #81879a;
+    color: #648071;
     font-size: .78rem;
 }
 
@@ -150,7 +150,7 @@
     padding: 0 22px;
     border: 0;
     border-radius: 10px;
-    background: #1d2440;
+    background: #133827;
     color: #fff;
     cursor: pointer;
     align-items: center;
@@ -160,12 +160,12 @@
 }
 
 .botao-principal:hover {
-    background: #35416b;
+    background: #21573d;
 }
 
 .observacao {
     margin: 12px 0 0;
-    color: #8a90a2;
+    color: #648071;
     font-size: .78rem;
     text-align: center;
 }
@@ -178,7 +178,7 @@
 }
 
 .preco span {
-    color: #81879a;
+    color: #648071;
     font-size: .78rem;
 }
 
@@ -201,7 +201,7 @@
 }
 
 .texto p {
-    color: #616980;
+    color: #577364;
     font-size: 1.05rem;
     line-height: 1.85;
 }
@@ -210,7 +210,7 @@ aside {
     align-self: start;
     padding: 30px;
     border-radius: 18px;
-    background: #f7f4ec;
+    background: #eef7f1;
 }
 
 aside h3 {
@@ -228,13 +228,13 @@ aside ul {
 
 aside li {
     display: flex;
-    color: #555e76;
+    color: #4a6657;
     align-items: center;
     gap: 10px;
 }
 
 aside li span {
-    color: #b17c18;
+    color: #1e7e48;
     font-weight: 900;
 }
 
@@ -246,7 +246,7 @@ aside li span {
 }
 
 .nao-encontrado>span {
-    color: #e5b85b;
+    color: #5fd18d;
     font-size: 5rem;
     font-weight: 900;
 }
@@ -257,7 +257,7 @@ aside li span {
 }
 
 .nao-encontrado p {
-    color: #697188;
+    color: #577364;
 }
 
 .nao-encontrado a {
@@ -265,7 +265,7 @@ aside li span {
     margin-top: 20px;
     padding: 14px 20px;
     border-radius: 9px;
-    background: #1d2440;
+    background: #133827;
     color: #fff;
     text-decoration: none;
 }

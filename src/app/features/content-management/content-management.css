@@ -33,7 +33,7 @@ textarea {
 
 .character-count {
     font-size: 0.8rem;
-    color: #666;
+    color: #577364;
 }
 
 .field small,
@@ -64,6 +64,12 @@ textarea {
 
 .checkbox-field input {
     width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkbox-field label {
+    cursor: pointer;
 }
 
 button {
